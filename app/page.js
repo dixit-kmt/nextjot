@@ -48,18 +48,34 @@ export default function Home() {
             </Button>
           </div>
 
-          <div className="max-w-4xl mx-auto mt-10 space-y-4">
-            <h1 className="text-lg font-semibold ml-2 text-center text-[#776B5D]">
+          <div className="max-w-4xl mx-auto mt-10">
+            <h1 className="text-lg font-semibold mb-4 text-center text-[#776B5D]">
               Jots
             </h1>
 
-            {loading && <Skeletons></Skeletons>}
+            {loading ? (
+              <Skeletons></Skeletons>
+            ) : (
+              <div className="space-y-4">
+                {posts.map((post) => (
+                  <Post
+                    reload={reload}
+                    setReload={setReload}
+                    key={post._id}
+                    onOpen={onOpen2}
+                    post={post}
+                    setSelectedPost={setSelectedPost}
+                  />
+                ))}
+              </div>
+            )}
+
             {!loading && posts.length == 0 && (
               <h1 className="text-medium text-red-600 font-semibold ml-2 text-center">
                 No jots found!
               </h1>
             )}
-            {posts.map((post) => (
+            {/* {posts.map((post) => (
               <Post
                 reload={reload}
                 setReload={setReload}
@@ -68,7 +84,7 @@ export default function Home() {
                 post={post}
                 setSelectedPost={setSelectedPost}
               />
-            ))}
+            ))} */}
           </div>
           <Create
             reload={reload}
