@@ -49,6 +49,7 @@ export default function Create({ isOpen, onOpen, onOpenChange, reload, setReload
       description: "",
     });
     setReload(!reload);
+    setLoading(false);
     onClose();
   };
   return (

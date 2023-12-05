@@ -75,16 +75,7 @@ export default function Home() {
                 No jots found!
               </h1>
             )}
-            {/* {posts.map((post) => (
-              <Post
-                reload={reload}
-                setReload={setReload}
-                key={post._id}
-                onOpen={onOpen2}
-                post={post}
-                setSelectedPost={setSelectedPost}
-              />
-            ))} */}
+            
           </div>
           <Create
             reload={reload}
